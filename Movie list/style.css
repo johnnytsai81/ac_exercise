@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* 樣式按鈕 */
+  .filter-top .wrap{
+    border: 1px solid #ced4da;
+    cursor: pointer;
+  }
+  
+  .filter-top .wrap i{
+    transition: .3s ease-out all;
+  }
+  
+  .filter-top .wrap.active{
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+    color: #ffffff;
+  }
+  
+  .filter-top .wrap:first-child{
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .filter-top .wrap:last-child{
+    border-radius: 0 3px 3px 0;
+  }
+  
+  .filter-top .wrap:not(.active):hover i{
+    color: #0b5ed7;
+    transition: .3s ease-out all;
+  }
+  
+  /* 頁籤按鈕 */
+  .page-link.active{
+    color: #ffffff !important;
+    background-color: #0b5ed7 !important;
+  }

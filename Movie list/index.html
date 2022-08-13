@@ -1,0 +1,115 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <title>Movie List</title>
+  </head>
+  
+  <body>
+  
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Movie List</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">
+                Home
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="favorite.html">Favorite</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="container mt-5">
+      <!-- Search Bar -->
+      <div class='row mb-5 justify-content-between align-items-center'>
+        <form class="col-6 row row-cols-lg-auto align-items-center" id="search-form">
+        <div class="col-12">
+          <label class="visually-hidden" for="search-input">
+            Search Keyword
+          </label>
+          <input type="text" class="form-control" id="search-input" placeholder="Keyword..." />
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" id="search-submit-button">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6.45168 0C8.23331 0 9.84603 0.704169 11.0136 1.84271C12.1811 2.98126 12.9032 4.55405 12.9032 6.29142C12.9032 7.95927 12.2377 9.47516 11.1518 10.6011C11.1715 10.6153 11.1906 10.631 11.2087 10.6485L15.8533 15.1715C16.0479 15.3602 16.0489 15.6672 15.8552 15.8571C15.6617 16.0469 15.3469 16.0477 15.1523 15.859L10.5076 11.336C10.4781 11.3073 10.4532 11.2761 10.4325 11.2429C9.33583 12.0823 7.95371 12.583 6.45155 12.583C4.66992 12.583 3.05694 11.8788 1.88939 10.7403C0.721982 9.60172 -0.00012207 8.0288 -0.00012207 6.29142C-0.00012207 4.55405 0.721982 2.98126 1.88953 1.84271C3.05707 0.704299 4.67006 0 6.45168 0ZM10.2923 2.54623C9.30939 1.58777 7.95157 0.994925 6.45168 0.994925C4.9518 0.994925 3.59384 1.58777 2.61096 2.54623C1.62808 3.5047 1.02014 4.82879 1.02014 6.29142C1.02014 7.75406 1.62808 9.07828 2.61096 10.0367C3.59371 10.9952 4.95166 11.5881 6.45168 11.5881C7.95157 11.5881 9.30939 10.9952 10.2923 10.0367C11.2752 9.07841 11.8831 7.75419 11.8831 6.29142C11.8831 4.82879 11.2752 3.5047 10.2923 2.54623Z"
+                fill="#ffffff"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+      <!--    filter   -->
+        <div class='col-auto filter-top d-flex'>
+          <div class="wrap card-mode active px-2 py-1">
+            <i class="fas fa-th"></i>
+          </div>
+          <div class="wrap list-mode px-2 py-1">
+            <i class="fas fa-list"></i>
+          </div>
+      </div>
+      </div>
+      
+      <div class="row mb-5" id="data-panel">
+        <!-- Render Movie List -->
+      </div>
+    </div>
+  
+    <!-- paginator -->
+    <nav aria-label="Page navigation" class='pb-5'>
+      <ul class="pagination justify-content-center" id="paginator">
+      </ul>
+    </nav>
+  
+    <!-- Movie Modal -->
+    <div class="modal fade" id="movie-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="movie-modal-title">Modal title
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body" id="movie-modal-body">
+            <div class="row">
+              <div class="col-sm-6" id="movie-modal-image">
+                <img
+                  src=""
+                  alt="movie-poster" class="img-fluid" />
+              </div>
+              <div class="col-sm-6">
+                <p><em id="movie-modal-date"></em></p>
+                <p id="movie-modal-description"></p>
+                <button class="btn btn-info btn-add-favorite">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <script src="./common.js"></script>
+  </body>
